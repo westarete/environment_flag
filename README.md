@@ -1,8 +1,12 @@
 # EnvironmentFlag
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/environment_flag`. To experiment with that code, run `bin/console` for an interactive prompt.
+EnvironmentFlag is a jQuery-based flag to highlight the current Rails environment.
 
-TODO: Delete this and the text above, and describe your gem
+## Browser compatibility
+
+Supports IE9+ and modern browsers.
+
+TODO: Write more specific browser compatibility here
 
 ## Installation
 
@@ -22,7 +26,38 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Include environment_flag javascript assets
+
+Add the following to your `app/assets/javascripts/application.js`:
+
+	//= require environment_flag
+
+### Include environment_flag stylesheet assets
+
+Add to your `app/assets/stylesheets/application.css`:
+
+	*= require environment_flag
+
+### Initialize the environment flag
+
+Usually you will add the environment_flag to the `body` of the HTML document.
+
+For example:
+
+```coffeescript
+$('body').environmentFlag '<%= Rails.env %>',
+    id: 'env-flag'
+    excluded_environments: false
+```
+
+### Options
+
+| Name                  | Type             | Default              | Description |
+|:----------------------|:-----------------|:---------------------|:------------|
+| id                    | string           | `'environment-flag'` | ID attribute of the appended `<div>`. |
+| position              | string           | `'top-right'`        | Position of the flag on the screen - `'top-right'` \| `'top-left'` \| `'bottom-right'` \| `'bottom-left'` |
+| title_prefix          | boolean          | `true`               | Indicate whether or not to prefix the document's title with the environment initial. This is helpful when looking at multiple browser tabs |
+| excluded_environments | array \| false   | `['production']`     | Array of Rails environments that should not display the environment flag. A value of `false` will display the environment flag in all environments. |
 
 ## Development
 
@@ -32,7 +67,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/environment_flag. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/westarete/environment_flag. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
