@@ -1,0 +1,137 @@
+$default-color: black;
+$test-color: #d20;
+$development-color: #009e00;
+$staging-color: #ff8000;
+$beta-color: #6424b3;
+$demo-color: #1f4e96;
+$production-color: white;
+
+$height: 30px;
+$font-size: 11px;
+
+$position-length-full: 45px;
+$position-length-recessed: 6px;
+
+.environment-flag {
+  position: fixed;
+  margin: 0px;
+  padding: 0px;
+  z-index: 10000;
+  display: block;
+  box-sizing: border-box;
+  width: 200px;
+  height: $height;
+  line-height: $height - 2px;
+
+  background: $default-color;
+  color: white;
+  border: 1px solid white;
+
+  font-family: Verdana, serif;
+  font-size: $font-size;
+  text-transform: capitalize;
+  text-align: center;
+  text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.6);
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+
+  &.loaded {
+    transition: all 0.15s ease-out;
+  }
+
+  &.recessed {
+    line-height: $font-size;
+  }
+
+  &.top-left {
+    left: $position-length-full;
+    top: $position-length-full;
+    -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+    -moz-transform: translate(-50%, -50%) rotate(-45deg);
+    -ms-transform: translate(-50%, -50%) rotate(-45deg);
+    -o-transform: translate(-50%, -50%) rotate(-45deg);
+    transform: translate(-50%, -50%) rotate(-45deg);
+
+    &.recessed {
+      left: $position-length-recessed;
+      top: $position-length-recessed;
+      padding-top: 13px;
+    }
+  }
+
+  &.top-right {
+    right: $position-length-full;
+    top: $position-length-full;
+    -webkit-transform: translate(50%, -50%) rotate(45deg);
+    -moz-transform: translate(50%, -50%) rotate(45deg);
+    -ms-transform: translate(50%, -50%) rotate(45deg);
+    -o-transform: translate(50%, -50%) rotate(45deg);
+    transform: translate(50%, -50%) rotate(45deg);
+
+    &.recessed {
+      right: $position-length-recessed;
+      top: $position-length-recessed;
+      padding-top: 13px;
+    }
+  }
+
+  &.bottom-left {
+    left: $position-length-full;
+    bottom: $position-length-full;
+    -webkit-transform: translate(-50%, 50%) rotate(45deg);
+    -moz-transform: translate(-50%, 50%) rotate(45deg);
+    -ms-transform: translate(-50%, 50%) rotate(45deg);
+    -o-transform: translate(-50%, 50%) rotate(45deg);
+    transform: translate(-50%, 50%) rotate(45deg);
+
+    &.recessed {
+      left: $position-length-recessed;
+      bottom: $position-length-recessed;
+      padding-top: 3px;
+    }
+  }
+
+  &.bottom-right {
+    left: auto;
+    right: $position-length-full;
+    top: auto;
+    bottom: $position-length-full;
+    -webkit-transform: translate(50%, 50%) rotate(-45deg);
+    -moz-transform: translate(50%, 50%) rotate(-45deg);
+    -ms-transform: translate(50%, 50%) rotate(-45deg);
+    -o-transform: translate(50%, 50%) rotate(-45deg);
+    transform: translate(50%, 50%) rotate(-45deg);
+
+    &.recessed {
+      right: $position-length-recessed;
+      bottom: $position-length-recessed;
+      padding-top: 3px;
+    }
+  }
+}
+
+.environment-flag.test {
+  background: $test-color;
+}
+
+.environment-flag.development {
+  background: $development-color;
+}
+
+.environment-flag.staging {
+  background: $staging-color;
+}
+
+.environment-flag.beta {
+  background: $beta-color;
+}
+
+.environment-flag.demo {
+  background-color: $demo-color;
+}
+
+.environment-flag.production {
+  background: $production-color;
+  color: $default-color;
+  border-color: $default-color;
+}

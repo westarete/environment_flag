@@ -1,5 +1,6 @@
 require "environment_flag/version"
+require "environment_flag/engine"
 
 module EnvironmentFlag
-  # Your code goes here...
+
 end
